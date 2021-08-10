@@ -9,5 +9,12 @@ router.get('/', (req,res) => {
     res.json(data)
 });
 
+router.post('/', (req,res) => {
+    const { text } = req.body;
+
+
+    res.send('ok');
+})
+
 module.exports = router;
 
