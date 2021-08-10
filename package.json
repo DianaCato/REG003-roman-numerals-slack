@@ -1,0 +1,31 @@
+{
+  "name": "roman-numerals-slack",
+  "version": "1.0.0",
+  "description": "App de Slack que permita a las usuarias convertir números enteros en números romanos y viceversa",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaCato/REG003-roman-numerals-slack.git"
+  },
+  "keywords": [
+    "slack"
+  ],
+  "author": "Diana Católico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DianaCato/REG003-roman-numerals-slack/issues"
+  },
+  "homepage": "https://github.com/DianaCato/REG003-roman-numerals-slack#readme",
+  "dependencies": {
+    "eslint": "^7.32.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "roman-numerals": "github:DianaCato/REG003-roman-numerals"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
