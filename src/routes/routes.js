@@ -1,4 +1,6 @@
 const { Router } = require('express');
+const qs = require('querystring')
+
 const router = Router();
 const pack = require('../../package.json');
 const { parse, stringify} = require('roman-numerals');
@@ -12,34 +14,32 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-    const { option, number } = req.body;
-
-    const output = (option, number) => {
-        if (option === "parse"){
+    const {text }  = req.body;
+   
+    const output = (number) => {
+        if (isNaN(+number)){
             try {
-                return parse(number)
+                const string = number.substring(0, number.length - 2);
+                return parse(string)
             }catch (error) {
                 return error.message
             }
         }else {
             try {
-                return stringify(number)
+                return stringify(+number)
             }catch (error) {
                 return error.message
             }
         }
     }
 
-   const text =  output(option, number);
+   const slackText =  output(text);
 
     const convert = {
         "response_type": "in_channel",
-        "text": text
+        "text": slackText
     }
     res.json(convert)
-
-    console.log(text, number)
-
 })
 
 module.exports = router;
